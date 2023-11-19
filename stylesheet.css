@@ -1,0 +1,324 @@
+/* ---------- Dark or Light Theme ---------- */
+:root {
+  --background-1: #1e1e1e;
+  --background-2: #252526;
+  --gray-1: #f7f7f7;
+  --gray-2: #b1b1b1;
+  --gray-3: #0a0a0a;
+  --botao: #f7f7f7;
+  --primary-1: #6100ed;
+  --primary-2: #985efe;
+  --font-1: 2rem;
+  --font-2: 1.25rem;
+  --font-3: 4rem;
+  --radius: 4px;
+  --gap-1: 3.75rem;
+  --gap-2: 1.25rem;
+  --gap-3: 0.625rem 1.25rem;
+  --padding-1: 0.93rem 1.87rem;
+  --padding-2: 2.5rem;
+  --padding-3: 1.25rem;
+  --onda-svg: url("/img/onda-escura.svg");
+  --onda-cor: rgba(255, 255, 255, 0.2);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background-1: #f7f7f7;
+    --background-2: #fff;
+    --gray-1: #121212;
+    --gray-2: #424242;
+    --gray-3: #c6c6c6;
+    --botao: #f7f7f7;
+    --primary-1: #e21;
+    --primary-2: #990000;
+    --onda-svg: url("/img/onda-clara.svg");
+    --onda-cor: rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* ---------- Estilos gerais e Resets ---------- */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background-1);
+  display: grid;
+  justify-items: center;
+  gap: var(--gap-1);
+  margin: 0px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+p,
+h1,
+h2,
+h3,
+ul,
+li {
+  margin: 0px;
+  padding: 0px;
+}
+
+p {
+  font-size: var(--font-2);
+  line-height: 1.3;
+}
+
+/* ---------- Header ---------- */
+
+.header {
+  display: grid;
+  justify-items: center;
+  gap: var(--gap-1);
+  margin-top: 3.75rem;
+}
+
+.menu {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  gap: var(--gap-2);
+  justify-content: center;
+}
+
+.menu a {
+  color: var(--gray-1);
+  text-transform: uppercase;
+  padding: var(--padding-1);
+  background: var(--background-2);
+  border-radius: var(--radius);
+  display: inline-block;
+  border: 2px solid transparent;
+  transition: border 0.3s;
+}
+
+.menu a:hover {
+  border: 2px solid var(--primary-1);
+}
+
+/* ---------- Main Content ---------- */
+.conteudo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 1000px;
+  min-width: 360px;
+}
+
+/* ---------- Main Content topo ---------- */
+.introducao::after {
+  content: "";
+  width: 3.75rem;
+  height: 0.25rem;
+  background: var(--primary-1);
+  position: absolute;
+  top: 30px;
+  right: -30px;
+}
+
+.introducao {
+  background: var(--background-2);
+  padding: var(--padding-2);
+  text-align: right;
+  position: relative;
+  display: grid;
+  gap: 1.25rem;
+  align-content: center;
+  justify-items: end;
+  border-radius: 5px 0px 0px 0px;
+}
+
+.introducao h1 > span {
+  transition: color 0.3s;
+}
+
+.vantagens-item h3 > span {
+  transition: color 0.3s;
+}
+
+.introducao h1 > span:hover {
+  color: var(--primary-1);
+  cursor: help;
+}
+
+.vantagens-item h3 > span:hover {
+  color: var(--primary-1);
+  cursor: help;
+}
+
+#label-introducao {
+  color: var(--gray-1);
+  font-size: 2rem;
+}
+
+.introducao p {
+  max-width: 60ch;
+  color: var(--gray-2);
+}
+
+.comprar {
+  background: var(--primary-1);
+  padding: 0.93rem 1.87rem;
+  color: var(--botao);
+  border-radius: 5px;
+  text-transform: uppercase;
+  transition: background 0.4s;
+}
+
+.comprar:hover {
+  background: var(--primary-2);
+}
+
+.foto img {
+  border-radius: 0px 5px 0px 0px;
+  object-fit: cover;
+  height: 100%;
+  object-position: center right;
+}
+
+/* ---------- Main Content Inferior ---------- */
+.subtitulo {
+  align-self: center;
+  padding: var(--padding-2);
+  font-size: var(--font-3);
+  text-transform: uppercase;
+  text-align: end;
+  color: var(--onda-cor);
+  background-image: var(--onda-svg);
+}
+
+.vantagens {
+  background: var(--background-2);
+  padding: 2.5rem;
+  border-radius: 0px 0px 5px 0px;
+}
+
+.vantagens-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px 20px;
+  padding: 20px;
+  border-left: 4px solid transparent;
+  transition: border-left 0.4s;
+}
+
+.vantagens-item h3 {
+  color: var(--gray-1);
+}
+
+.vantagens-item p {
+  color: var(--gray-2);
+}
+
+.vantagens-item:hover {
+  border-left: 4px solid var(--primary-1);
+}
+
+.vantagens-item:nth-child(odd) {
+  background: var(--background-1);
+  border-radius: 5px;
+}
+
+.vantagens-item p {
+  grid-column: 2;
+}
+
+/* ---------- Footer ---------- */
+.rodape {
+  background: var(--background-2);
+
+  text-align: center;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 40px;
+}
+
+.rodape p {
+  color: var(--gray-2);
+}
+
+/* ---------- Media Queries ---------- */
+
+@media (max-width: 1000px) {
+  .introducao h1 {
+    font-size: 1.7rem;
+  }
+  .introducao p {
+    font-size: 1.1rem;
+  }
+  .introducao a {
+    font-size: 0.8rem;
+  }
+  .subtitulo {
+    font-size: 3.5rem;
+  }
+  .vantagens-item h3 {
+    font-size: 1.1rem;
+  }
+  .vantagens-item p {
+    font-size: 1.1rem;
+  }
+  .rodape p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 880px) {
+  .subtitulo {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .conteudo {
+    grid-template-columns: 1fr;
+  }
+  .subtitulo {
+    font-size: 2.6rem;
+    color: var(--gray-1);
+    text-align: center;
+  }
+  .introducao::after {
+    content: "";
+    width: 0.25rem;
+    height: 2.4rem;
+    top: 225px;
+    left: 50%;
+  }
+  .introducao {
+    justify-items: center;
+    text-align: center;
+  }
+  .header {
+    gap: 2rem;
+  }
+  .menu {
+    gap: 0.75rem;
+  }
+  body {
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 593px) {
+  .introducao::after {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .vantagens-item p {
+    font-size: 0.9rem;
+  }
+}
